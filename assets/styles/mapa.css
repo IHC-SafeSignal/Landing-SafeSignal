@@ -1,0 +1,50 @@
+/* Mapa de Riesgo */
+.map-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.map-filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: white;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .2s;
+}
+.map-filter-btn.active,
+.map-filter-btn:hover {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+.map-side-panel {
+  width: 280px;
+  flex-shrink: 0;
+  background: white;
+  border-left: 1px solid var(--border);
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.map-incident-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.map-incident-item:last-child { border-bottom: none; }
+.map-legend {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+/* Leaflet marker overrides */
+.leaflet-container { font-family: inherit; }
