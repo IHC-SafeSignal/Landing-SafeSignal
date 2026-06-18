@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Riesgo — SafeSignal</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="assets/styles/app.css" />
+  <link rel="stylesheet" href="assets/styles/mapa.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <a href="index.html" class="sidebar__logo"><svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M14 2L4 6.5V13.5C4 19.2 8.4 24.5 14 26C19.6 24.5 24 19.2 24 13.5V6.5L14 2Z" fill="#1e3a5f"/><path d="M11 13.5L13 15.5L17 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SafeSignal</a>
+        <div class="sidebar__user"><div class="sidebar__avatar" id="sidebarAvatar">U</div><div><div class="sidebar__user-name" id="sidebarUserName">Usuario</div><div class="sidebar__user-role" id="sidebarUserRole">Lima, PE</div></div></div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Dashboard</a>
+        <a href="mapa.html" class="sidebar__link active"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.5 10.5 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="8" cy="6" r="1.8" stroke="currentColor" stroke-width="1.2"/></svg>Mapa de Riesgo</a>
+        <a href="incidentes.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5V8.5M8 10.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Incidentes</a>
+        <a href="reportes-comunidad.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4H14V11H9L6.5 13.5L4 11H2V4Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Reportes</a>
+        <a href="rutas.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13C4.5 11 4.5 9 6 7C7.5 5 9.5 5 11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="3" cy="13" r="1.5" fill="currentColor"/><circle cx="11" cy="3" r="1.5" fill="currentColor"/></svg>Rutas Seguras</a>
+      </nav>
+      <div class="sidebar__bottom">
+        <a href="perfil.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 13C3 10.2 5.2 8 8 8C10.8 8 13 10.2 13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Mi Perfil</a>
+        <a href="#" class="sidebar__link sidebar__link--danger" id="btnLogout"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 2H3C2.4 2 2 2.4 2 3V13C2 13.6 2.4 14 3 14H6M10.5 11L14 8L10.5 5M14 8H6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Logout</a>
+        <a href="sos.html" class="sidebar__sos-btn">Reportar Emergencia</a>
+      </div>
+    </aside>
+    <div class="main-content" style="display:flex;flex-direction:column;">
+      <div class="map-toolbar">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="map-filter-btn active" onclick="filterMap(this,'all')">Todos</button>
+          <button class="map-filter-btn" onclick="filterMap(this,'robo')">Robos</button>
+          <button class="map-filter-btn" onclick="filterMap(this,'acoso')">Acoso</button>
+          <button class="map-filter-btn" onclick="filterMap(this,'accidente')">Accidentes</button>
+          <button class="map-filter-btn" onclick="filterMap(this,'vandalismo')">Vandalismo</button>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span style="font-size:12px;color:var(--muted);">Última actualización: hace 2 min</span>
+          <button class="btn-secondary" style="padding:6px 12px;font-size:12px;">Actualizar</button>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;gap:0;min-height:0;">
+        <div id="map" style="flex:1;min-height:480px;"></div>
+        <div class="map-side-panel">
+          <h4 style="margin-bottom:12px;font-size:14px;color:var(--navy);">Incidentes recientes</h4>
+          <div class="map-incident-item">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;">Robo a mano armada</span><span class="badge badge--red" style="font-size:10px;">Alto</span></div>
+            <div style="font-size:11.5px;color:var(--muted);">Av. Javier Prado · Hace 15 min</div>
+          </div>
+          <div class="map-incident-item">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;">Intento de acoso</span><span class="badge badge--yellow" style="font-size:10px;">Medio</span></div>
+            <div style="font-size:11.5px;color:var(--muted);">Las Begonias · Hace 42 min</div>
+          </div>
+          <div class="map-incident-item">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;">Accidente de tránsito</span><span class="badge badge--yellow" style="font-size:10px;">Medio</span></div>
+            <div style="font-size:11.5px;color:var(--muted);">Av. Arequipa · Hace 1 hora</div>
+          </div>
+          <div class="map-incident-item">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;">Vandalismo</span><span class="badge badge--gray" style="font-size:10px;">Bajo</span></div>
+            <div style="font-size:11.5px;color:var(--muted);">Parque Reducto · Hace 2 h</div>
+          </div>
+          <div class="map-incident-item">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;">Robo en tienda</span><span class="badge badge--red" style="font-size:10px;">Alto</span></div>
+            <div style="font-size:11.5px;color:var(--muted);">Centro Comercial · Hace 3 h</div>
+          </div>
+          <div class="map-legend">
+            <div style="font-size:11.5px;font-weight:600;color:var(--navy);margin-bottom:8px;">Leyenda</div>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><span style="width:10px;height:10px;border-radius:50%;background:#ef4444;display:inline-block;"></span>Alto riesgo</div>
+              <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>Riesgo medio</div>
+              <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><span style="width:10px;height:10px;border-radius:50%;background:#22c55e;display:inline-block;"></span>Zona segura</div>
+            </div>
+          </div>
+          <a href="reporte-incidente.html" class="btn-primary" style="margin-top:14px;display:block;text-align:center;text-decoration:none;padding:10px;">+ Reportar incidente</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/scripts/app.js"></script>
+  <script src="assets/scripts/mapa.js"></script>
+</body>
+</html>
