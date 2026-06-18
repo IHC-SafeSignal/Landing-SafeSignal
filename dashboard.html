@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Control — SafeSignal</title>
+  <link rel="stylesheet" href="assets/styles/app.css" />
+  <link rel="stylesheet" href="assets/styles/dashboard.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <a href="index.html" class="sidebar__logo">
+          <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M14 2L4 6.5V13.5C4 19.2 8.4 24.5 14 26C19.6 24.5 24 19.2 24 13.5V6.5L14 2Z" fill="#1e3a5f"/><path d="M11 13.5L13 15.5L17 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          SafeSignal
+        </a>
+        <div class="sidebar__user">
+          <div class="sidebar__avatar" id="sidebarAvatar">U</div>
+          <div><div class="sidebar__user-name" id="sidebarUserName">Usuario</div><div class="sidebar__user-role" id="sidebarUserRole">Lima, PE</div></div>
+        </div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="sidebar__link active"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Dashboard</a>
+        <a href="mapa.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.5 10.5 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="8" cy="6" r="1.8" stroke="currentColor" stroke-width="1.2"/></svg>Mapa de Riesgo</a>
+        <a href="incidentes.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5V8.5M8 10.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Incidentes</a>
+        <a href="reportes-comunidad.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4H14V11H9L6.5 13.5L4 11H2V4Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Reportes</a>
+        <a href="estadisticas.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 8L9 10L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Estadísticas</a>
+        <a href="configuracion.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.5V3M8 13V14.5M1.5 8H3M13 8H14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Configuración</a>
+      </nav>
+      <div class="sidebar__bottom">
+        <a href="perfil.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 13C3 10.2 5.2 8 8 8C10.8 8 13 10.2 13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Mi Perfil</a>
+        <a href="#" class="sidebar__link sidebar__link--danger" id="btnLogout"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 2H3C2.4 2 2 2.4 2 3V13C2 13.6 2.4 14 3 14H6M10.5 11L14 8L10.5 5M14 8H6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cerrar sesión</a>
+        <a href="sos.html" class="sidebar__sos-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L2 3.5V7C2 10 4.3 12.7 7 13.5C9.7 12.7 12 10 12 7V3.5L7 1Z" fill="white"/></svg>Reportar Emergencia</a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <div class="page-content">
+        <div class="page-header__row" style="margin-bottom:20px;">
+          <div>
+            <h1 style="font-size:22px;font-weight:800;color:var(--navy);">Panel de Control</h1>
+            <p style="font-size:13px;color:var(--muted);">Estás activo en la seguridad de tu zona</p>
+          </div>
+          <button class="btn-sos" onclick="window.location.href='sos.html'"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L2 3.5V7C2 10 4.3 12.7 7 13.5C9.7 12.7 12 10 12 7V3.5L7 1Z" fill="white"/></svg>Activar Monitoreo</button>
+        </div>
+
+        <!-- US15 anomaly banner -->
+        <div class="anomaly-banner">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#f59e0b"/><path d="M8 4.5V8.5M8 10.5V11" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <h4 style="margin:0;">Posible situación inusual detectada</h4>
+            <span class="badge badge--yellow" style="margin-left:auto;">Análisis activo</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:#78350f;margin-bottom:8px;">
+            <div><strong>Ubicación:</strong> Calle Las Gardenias 450, Miraflores</div>
+            <div><strong>Hora:</strong> 14:25 PM</div>
+            <div><strong>Motivo:</strong> Patrón de movimiento inusual detectado</div>
+            <div><strong>Inspector:</strong> Código AT-402</div>
+          </div>
+          <div class="anomaly-actions">
+            <button class="btn-act-red" onclick="window.location.href='sos.html'">Activar SOS</button>
+            <button class="btn-act-ghost">Estoy bien</button>
+            <button class="btn-act-ghost" onclick="window.location.href='ubicacion.html'">Compartir ubicación</button>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div>
+            <div class="map-dark">
+              <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="320" fill="#0d1b2a"/>
+                <g opacity="0.2" stroke="#4a9eff" stroke-width="0.6" fill="none">
+                  <line x1="0" y1="40" x2="600" y2="60"/><line x1="0" y1="100" x2="600" y2="120"/><line x1="0" y1="160" x2="600" y2="180"/><line x1="0" y1="220" x2="600" y2="240"/><line x1="0" y1="280" x2="600" y2="300"/>
+                  <line x1="70" y1="0" x2="80" y2="320"/><line x1="170" y1="0" x2="180" y2="320"/><line x1="270" y1="0" x2="280" y2="320"/><line x1="370" y1="0" x2="380" y2="320"/><line x1="470" y1="0" x2="480" y2="320"/>
+                </g>
+                <ellipse cx="280" cy="160" rx="80" ry="60" fill="#f59e0b" opacity="0.15"/>
+                <ellipse cx="140" cy="200" rx="50" ry="40" fill="#c53030" opacity="0.15"/>
+                <ellipse cx="450" cy="100" rx="60" ry="45" fill="#22c55e" opacity="0.12"/>
+                <circle cx="280" cy="160" r="7" fill="#f59e0b"/><circle cx="140" cy="200" r="6" fill="#c53030"/><circle cx="450" cy="100" r="5" fill="#22c55e"/>
+                <rect x="220" y="148" width="90" height="18" rx="4" fill="#0d1b2a" opacity="0.9"/>
+                <text x="265" y="161" text-anchor="middle" fill="#f59e0b" font-size="9" font-family="system-ui">Miraflores</text>
+                <rect x="90" y="188" width="80" height="18" rx="4" fill="#0d1b2a" opacity="0.9"/>
+                <text x="130" y="201" text-anchor="middle" fill="#ff6b6b" font-size="9" font-family="system-ui">San Isidro</text>
+              </svg>
+              <div style="position:absolute;bottom:14px;left:14px;background:rgba(13,27,42,.9);border-radius:8px;padding:8px 12px;">
+                <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:4px;">Vista en Tiempo Real</div>
+                <div style="display:flex;gap:14px;font-size:10.5px;"><span style="color:#22c55e;">● Seguro</span><span style="color:#f59e0b;">● Advertencia</span><span style="color:#ef4444;">● Peligro</span></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;">
+              <div class="stat-box"><div class="stat-box__num">12</div><div class="stat-box__label">Incidentes hoy</div><div class="stat-box__delta stat-box__delta--down">+3 vs ayer</div></div>
+              <div class="stat-box"><div class="stat-box__num">4.2 min</div><div class="stat-box__label">Tiempo respuesta</div><div class="stat-box__delta stat-box__delta--up">−17% este mes</div></div>
+              <div class="stat-box"><div class="stat-box__num">98%</div><div class="stat-box__label">Rutas seguras</div><div class="stat-box__delta stat-box__delta--up">+2% este mes</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="sidebar-right-card">
+              <h4>Zona Segura</h4>
+              <p style="font-size:12.5px;color:var(--muted);line-height:1.55;">Tu seguridad en esta zona presenta las condiciones registradas en los últimos reportes.</p>
+              <div style="margin-top:10px;display:flex;align-items:center;gap:8px;"><div class="alert-dot alert-dot--green"></div><span style="font-size:13px;font-weight:600;color:#16a34a;">Zona actualmente segura</span></div>
+            </div>
+            <div class="sidebar-right-card">
+              <h4>Alertas Prioritarias</h4>
+              <div class="priority-alert"><div class="alert-dot alert-dot--red" style="margin-top:5px;"></div><div><div style="font-size:13px;font-weight:600;">Robo a mano armada</div><div style="font-size:11.5px;color:var(--muted);">Av. Javier Prado · Hace 15 min</div></div></div>
+              <div class="priority-alert"><div style="width:10px;height:10px;border-radius:50%;background:#f59e0b;margin-top:5px;flex-shrink:0;"></div><div><div style="font-size:13px;font-weight:600;">Intento de acoso</div><div style="font-size:11.5px;color:var(--muted);">Las Begonias 450 · Hace 42 min</div></div></div>
+              <a href="incidentes.html" style="display:block;margin-top:12px;font-size:12.5px;font-weight:600;color:var(--navy);text-align:center;">Ver todos los incidentes →</a>
+            </div>
+            <div class="sidebar-right-card" style="background:var(--navy);border-color:var(--navy);">
+              <h4 style="color:white;">Plan Premium Activo</h4>
+              <p style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.55;">Cobertura activa en 340 km de Lima. Monitoreo 24/7 y contactos ilimitados.</p>
+              <a href="configuracion.html" style="display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:white;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:6px;">Ver Plan</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;">
+          <a href="contactos.html" style="display:flex;align-items:center;gap:10px;background:white;border:1px solid var(--border);border-radius:10px;padding:14px 16px;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="6" r="3" stroke="#1e3a5f" stroke-width="1.5"/><path d="M2 17C2 14 4.7 12 8 12M14 12V18M11 15H17" stroke="#1e3a5f" stroke-width="1.5" stroke-linecap="round"/></svg><div><div style="font-size:13px;font-weight:600;color:var(--navy);">Contactos</div><div style="font-size:11px;color:var(--muted);">3 configurados</div></div></a>
+          <a href="seguimiento.html" style="display:flex;align-items:center;gap:10px;background:white;border:1px solid var(--border);border-radius:10px;padding:14px 16px;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#1e3a5f" stroke-width="1.5"/><path d="M10 6V10L13 13" stroke="#1e3a5f" stroke-width="1.5" stroke-linecap="round"/></svg><div><div style="font-size:13px;font-weight:600;color:var(--navy);">Seguimiento</div><div style="font-size:11px;color:var(--muted);">Activar modo</div></div></a>
+          <a href="reporte-incidente.html" style="display:flex;align-items:center;gap:10px;background:white;border:1px solid var(--border);border-radius:10px;padding:14px 16px;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3L17 16H3L10 3Z" stroke="#1e3a5f" stroke-width="1.5" fill="none"/><path d="M10 9V12M10 14V14.5" stroke="#1e3a5f" stroke-width="1.5" stroke-linecap="round"/></svg><div><div style="font-size:13px;font-weight:600;color:var(--navy);">Reportar</div><div style="font-size:11px;color:var(--muted);">Nuevo incidente</div></div></a>
+        </div>
+      </div>
+      <footer class="app-footer"><p>© 2024 SafeSignal. Vigilancia y Seguridad Ciudadana.</p><div class="app-footer__links"><a href="#">Privacidad</a><a href="#">Términos</a><a href="#">Soporte</a></div></footer>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="logoutModal" style="display:none;">
+    <div class="modal" style="text-align:center;">
+      <div class="modal__title">¿Seguro que deseas cerrar sesión?</div>
+      <div class="modal__body">Tendrás que volver a iniciar sesión para usar SafeSignal.</div>
+      <div class="modal__footer" style="justify-content:center;flex-direction:column;gap:8px;">
+        <button class="btn-primary" id="confirmLogout">Cerrar sesión</button>
+        <button class="btn-secondary" onclick="document.getElementById('logoutModal').style.display='none'">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/scripts/app.js"></script>
+  <script src="assets/scripts/dashboard.js"></script>
+</body>
+</html>
