@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seguimiento Activo — SafeSignal</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="assets/styles/app.css" />
+  <link rel="stylesheet" href="assets/styles/seguimiento.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <a href="index.html" class="sidebar__logo"><svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M14 2L4 6.5V13.5C4 19.2 8.4 24.5 14 26C19.6 24.5 24 19.2 24 13.5V6.5L14 2Z" fill="#1e3a5f"/><path d="M11 13.5L13 15.5L17 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SafeSignal</a>
+        <div class="sidebar__user"><div class="sidebar__avatar" id="sidebarAvatar">U</div><div><div class="sidebar__user-name" id="sidebarUserName">Usuario</div><div class="sidebar__user-role" id="sidebarUserRole">Lima, PE</div></div></div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Dashboard</a>
+        <a href="mapa.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.5 10.5 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Mapa</a>
+        <a href="seguimiento.html" class="sidebar__link active"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5V8L10 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Seguimiento</a>
+        <a href="historial-recorridos.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4H14M2 8H10M2 12H7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Historial</a>
+        <a href="rutas.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13C4.5 11 4.5 9 6 7C7.5 5 9.5 5 11 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="3" cy="13" r="1.5" fill="currentColor"/><circle cx="11" cy="3" r="1.5" fill="currentColor"/></svg>Rutas</a>
+      </nav>
+      <div class="sidebar__bottom">
+        <a href="#" class="sidebar__link sidebar__link--danger" id="btnLogout"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 2H3C2.4 2 2 2.4 2 3V13C2 13.6 2.4 14 3 14H6M10.5 11L14 8L10.5 5M14 8H6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Logout</a>
+        <a href="sos.html" class="sidebar__sos-btn">Reportar Emergencia</a>
+      </div>
+    </aside>
+    <div class="main-content" style="display:flex;flex-direction:column;">
+      <div class="seg-header">
+        <div>
+          <h1 style="font-size:20px;font-weight:800;color:var(--navy);margin:0;">Seguimiento en vivo</h1>
+          <p style="font-size:12.5px;color:var(--muted);margin:2px 0 0;">Tu recorrido es monitoreado por tus contactos de confianza.</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="display:flex;align-items:center;gap:6px;background:#dcfce7;border-radius:20px;padding:6px 14px;"><div style="width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 1.4s infinite;"></div><span style="font-size:13px;font-weight:600;color:#166534;">Activo</span></div>
+          <div style="font-size:22px;font-weight:800;color:var(--navy);" id="segTimer">00:00:00</div>
+          <button class="btn-danger" style="width:auto;padding:8px 16px;" onclick="stopTracking()">Finalizar</button>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;gap:0;min-height:0;">
+        <div id="map" style="flex:1;min-height:460px;"></div>
+        <div class="seg-side">
+          <div class="seg-dest-card">
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Destino</div>
+            <div style="font-size:14px;font-weight:700;color:var(--navy);">Av. Larco 345, Miraflores</div>
+            <div style="margin-top:8px;display:flex;gap:10px;font-size:12px;"><span style="color:var(--muted);">⏱ Estimado:</span><span style="font-weight:600;">18 min</span><span style="color:var(--muted);">📏 2.4 km</span></div>
+          </div>
+          <div style="margin-top:14px;">
+            <div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px;">Notificando a</div>
+            <div class="seg-contact"><div class="contact-initials" style="width:30px;height:30px;font-size:11px;background:#dde8f5;color:var(--navy);">MA</div><div style="flex:1;"><div style="font-size:12.5px;font-weight:600;">María Álvarez</div><div style="font-size:11px;color:var(--muted);">Recibido hace 2 min</div></div><span style="font-size:10.5px;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:10px;font-weight:600;">✓ Activo</span></div>
+            <div class="seg-contact"><div class="contact-initials" style="width:30px;height:30px;font-size:11px;background:#fef3c7;color:#92400e;">CP</div><div style="flex:1;"><div style="font-size:12.5px;font-weight:600;">Carlos Pérez</div><div style="font-size:11px;color:var(--muted);">Recibido hace 2 min</div></div><span style="font-size:10.5px;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:10px;font-weight:600;">✓ Activo</span></div>
+          </div>
+          <div style="margin-top:14px;padding:12px;background:#f8fafc;border-radius:10px;border:1px solid var(--border);">
+            <div style="font-size:11.5px;font-weight:600;color:var(--navy);margin-bottom:6px;">Estado de ruta</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;"><span style="color:#22c55e;">●</span>Ruta sin incidentes activos</div>
+            <div style="margin-top:6px;font-size:11.5px;color:var(--muted);">Última actualización: hace 10 seg</div>
+          </div>
+          <button class="btn-secondary" style="margin-top:10px;font-size:12.5px;" onclick="stopTracking()">Llegué con seguridad</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/scripts/app.js"></script>
+  <script src="assets/scripts/seguimiento.js"></script>
+</body>
+</html>
