@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reportes de la Comunidad — SafeSignal</title>
+  <link rel="stylesheet" href="assets/styles/app.css" />
+  <link rel="stylesheet" href="assets/styles/reportes-comunidad.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <a href="index.html" class="sidebar__logo"><img src="assets/images/logo.jpg" alt="SafeSignal"></a>
+        <div class="sidebar__user"><div class="sidebar__avatar" id="sidebarAvatar">U</div><div><div class="sidebar__user-name" id="sidebarUserName">Usuario</div><div class="sidebar__user-role" id="sidebarUserRole">Lima, PE</div></div></div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Dashboard</a>
+        <a href="incidentes.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5V8.5M8 10.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Incidentes</a>
+        <a href="reportes-comunidad.html" class="sidebar__link active"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4H14V11H9L6.5 13.5L4 11H2V4Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Reportes comunidad</a>
+        <a href="mapa.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.5 10.5 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Mapa</a>
+        <a href="estadisticas.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 8L9 10L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Estadísticas</a>
+      </nav>
+      <div class="sidebar__bottom">
+        <a href="perfil.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 13C3 10.2 5.2 8 8 8C10.8 8 13 10.2 13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Mi Perfil</a>
+        <a href="#" class="sidebar__link sidebar__link--danger" id="btnLogout"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 2H3C2.4 2 2 2.4 2 3V13C2 13.6 2.4 14 3 14H6M10.5 11L14 8L10.5 5M14 8H6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Logout</a>
+        <a href="sos.html" class="sidebar__sos-btn">Reportar Emergencia</a>
+      </div>
+    </aside>
+    <div class="main-content">
+      <div class="page-content">
+        <div class="page-header__row">
+          <div><h1 style="font-size:22px;font-weight:800;color:var(--navy);">Reportes de la comunidad</h1><p style="font-size:13px;color:var(--muted);">Incidentes reportados por vecinos verificados en tu zona.</p></div>
+          <a href="reporte-incidente.html" class="btn-primary" style="width:auto;text-decoration:none;">+ Nuevo reporte</a>
+        </div>
+
+        <div class="filter-row">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">Robos</button>
+            <button class="filter-btn">Acoso</button>
+            <button class="filter-btn">Accidentes</button>
+            <button class="filter-btn">Otros</button>
+          </div>
+          <select class="form-select" style="font-size:12px;padding:7px 10px;height:auto;width:auto;"><option>Esta semana</option><option>Hoy</option><option>Este mes</option></select>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+          <div class="report-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+              <div style="display:flex;align-items:center;gap:8px;"><span class="badge badge--red">Robo</span><span style="font-size:13.5px;font-weight:700;color:var(--navy);">Robo de celular en paradero</span></div>
+              <span style="font-size:11.5px;color:var(--muted);">Hace 30 min</span>
+            </div>
+            <div style="font-size:12.5px;color:var(--muted);margin-top:4px;">📍 Av. Arequipa cdra. 18, Miraflores</div>
+            <div style="font-size:13px;color:var(--text);margin-top:6px;">Motocicleta con dos personas arrebató celular a pasajero que esperaba bus. Dirección de fuga: hacia Surquillo.</div>
+            <div class="validate-panel" id="vp1">
+              <div class="val-bar"><div class="val-bar__fill" style="width:73%;"></div></div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:4px;"><span>11 / 15 verificaciones</span><span style="color:#22c55e;font-weight:600;">73% confiabilidad</span></div>
+              <div style="display:flex;gap:8px;margin-top:10px;"><button class="btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="validateReport('vp1',true)">✓ Verificar</button><button class="btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="validateReport('vp1',false)">✗ No verídico</button></div>
+            </div>
+          </div>
+
+          <div class="report-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+              <div style="display:flex;align-items:center;gap:8px;"><span class="badge badge--yellow">Acoso</span><span style="font-size:13.5px;font-weight:700;color:var(--navy);">Acoso verbal en parque</span></div>
+              <span style="font-size:11.5px;color:var(--muted);">Hace 2 horas</span>
+            </div>
+            <div style="font-size:12.5px;color:var(--muted);margin-top:4px;">📍 Parque Central de Miraflores</div>
+            <div style="font-size:13px;color:var(--text);margin-top:6px;">Grupo de 3 individuos hostigó verbalmente a pareja joven. Serenazgo fue alertado pero no intervino a tiempo.</div>
+            <div class="validate-panel" id="vp2">
+              <div class="val-bar"><div class="val-bar__fill" style="width:45%;background:#f59e0b;"></div></div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:4px;"><span>9 / 20 verificaciones</span><span style="color:#d97706;font-weight:600;">45% confiabilidad</span></div>
+              <div style="display:flex;gap:8px;margin-top:10px;"><button class="btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="validateReport('vp2',true)">✓ Verificar</button><button class="btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="validateReport('vp2',false)">✗ No verídico</button></div>
+            </div>
+          </div>
+
+          <div class="report-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+              <div style="display:flex;align-items:center;gap:8px;"><span class="badge badge--blue">Accidente</span><span style="font-size:13.5px;font-weight:700;color:var(--navy);">Choque múltiple Av. Larco</span></div>
+              <span style="font-size:11.5px;color:var(--muted);">Hace 4 horas</span>
+            </div>
+            <div style="font-size:12.5px;color:var(--muted);margin-top:4px;">📍 Av. Larco con Schell, Miraflores</div>
+            <div style="font-size:13px;color:var(--text);margin-top:6px;">Tres vehículos involucrados. Tráfico afectado hasta las 19:00. SAMU atendió en el lugar.</div>
+            <div class="validate-panel" id="vp3">
+              <div class="val-bar"><div class="val-bar__fill" style="width:92%;background:#22c55e;"></div></div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:4px;"><span>23 / 25 verificaciones</span><span style="color:#16a34a;font-weight:600;">92% confiabilidad</span></div>
+              <div style="display:flex;gap:8px;margin-top:10px;"><button class="btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="validateReport('vp3',true)">✓ Verificar</button><button class="btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="validateReport('vp3',false)">✗ No verídico</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="app-footer"><p>© 2024 SafeSignal.</p></footer>
+    </div>
+  </div>
+  <script src="assets/scripts/app.js"></script>
+  <script src="assets/scripts/reportes-comunidad.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 6px; }
+.type-btn { border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 10px; text-align: center; cursor: pointer; transition: all .15s; background: white; }
+.type-btn:hover { border-color: var(--navy); }
+.type-btn.selected { border-color: var(--navy); background: #eef2f7; }
+.type-btn span { font-size: 22px; display: block; margin-bottom: 5px; }
+.type-btn p { font-size: 12px; font-weight: 600; color: var(--text); margin: 0; }
+.evidence-box { border: 2px dashed var(--border); border-radius: 10px; padding: 28px 20px; text-align: center; cursor: pointer; transition: border-color .15s; background: #fafbfc; }
+.evidence-box:hover { border-color: var(--navy); }
+.evidence-box p { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+.step-bar { display: flex; align-items: center; gap: 0; margin-bottom: 24px; }
+.step-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+.step-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.step-line { flex: 1; height: 2px; background: var(--border); margin: 0 6px; }
+.step-active .step-dot { background: var(--navy); color: white; }
+.step-done .step-dot { background: #22c55e; color: white; }
+.step-pending .step-dot { background: var(--border); color: var(--muted); }
+.step-active { color: var(--navy); }
+.step-pending { color: var(--muted); }
