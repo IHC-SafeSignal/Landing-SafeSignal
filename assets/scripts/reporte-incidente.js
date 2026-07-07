@@ -1,14 +1,21 @@
 var currentStep = 1;
+var totalSteps = 4;
 
 function nextStep(n) {
-  document.getElementById('stepPanel' + currentStep).style.display = 'none';
+  document.getElementById('step' + currentStep).style.display = 'none';
   document.getElementById('step' + currentStep + 'item').className = 'step-item step-done';
+
   currentStep = n;
-  document.getElementById('stepPanel' + currentStep).style.display = 'block';
+
+  document.getElementById('step' + currentStep).style.display = 'block';
   document.getElementById('step' + currentStep + 'item').className = 'step-item step-active';
+
+  for (var i = currentStep + 1; i <= totalSteps; i++) {
+    document.getElementById('step' + i + 'item').className = 'step-item step-pending';
+  }
 }
 
-function selectType(el) {
+function selectType(el, name) {
   document.querySelectorAll('.type-btn').forEach(function (b) { b.classList.remove('selected'); });
   el.classList.add('selected');
 }

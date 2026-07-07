@@ -8,4 +8,8 @@
 .priority-tag { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 10px; }
 .priority-tag--high { background: #fff0f0; color: var(--sos); }
 .priority-tag--std { background: #f1f5f9; color: var(--muted); }
-.share-map { background: #0d1b2a; border-radius: 12px; overflow: hidden; height: 180px; margin-top: 16px; }
+.priority-tag--1 { background: #fff0f0; color: var(--sos); }
+.priority-tag--2 { background: #fffbeb; color: #b45309; }
+.priority-tag--3 { background: #f1f5f9; color: var(--muted); }
+.share-map { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 600; color: var(--navy); cursor: pointer; transition: background .15s; }
+.share-map:hover { background: #f1f5f9; }
