@@ -36,7 +36,7 @@ La plataforma permite activar alertas SOS, compartir ubicación en tiempo real c
 
 * Frontend: HTML, CSS y JavaScript.
 * UI/UX: Figma para wireframes, mockups y prototipos.
-* Diagramación y documentación: Lucidchart, Miro y Microsoft Word.
+* Diagramación y documentación: Microsoft Word.
 * Control de versiones: Git y GitHub.
 * Despliegue: GitHub Pages.
 
