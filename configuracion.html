@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuración — SafeSignal</title>
+  <link rel="stylesheet" href="assets/styles/app.css" />
+  <link rel="stylesheet" href="assets/styles/configuracion.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <a href="index.html" class="sidebar__logo"><img src="assets/images/logo.jpg" alt="SafeSignal"></a>
+        <div class="sidebar__user"><div class="sidebar__avatar" id="sidebarAvatar">U</div><div><div class="sidebar__user-name" id="sidebarUserName">Usuario</div><div class="sidebar__user-role" id="sidebarUserRole">Lima, PE</div></div></div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Dashboard</a>
+        <a href="notificaciones.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 4 3 4 5V9L2 11H14L12 9V5C12 3 10.5 1.5 8 1.5Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>Notificaciones</a>
+        <a href="dispositivos-iot.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="5" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 5V4C5 2.9 5.9 2 7 2H9C10.1 2 11 2.9 11 4V5" stroke="currentColor" stroke-width="1.4"/></svg>Dispositivos</a>
+        <a href="configuracion.html" class="sidebar__link active"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.5V3M8 13V14.5M1.5 8H3M13 8H14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Configuración</a>
+      </nav>
+      <div class="sidebar__bottom">
+        <a href="perfil.html" class="sidebar__link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 13C3 10.2 5.2 8 8 8C10.8 8 13 10.2 13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Mi Perfil</a>
+        <a href="#" class="sidebar__link sidebar__link--danger" id="btnLogout"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 2H3C2.4 2 2 2.4 2 3V13C2 13.6 2.4 14 3 14H6M10.5 11L14 8L10.5 5M14 8H6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Logout</a>
+        <a href="sos.html" class="sidebar__sos-btn">Reportar Emergencia</a>
+      </div>
+    </aside>
+    <div class="main-content">
+      <div id="cfgSaveBar" class="config-save-bar" style="display:none;">
+        <span style="font-size:13px;font-weight:600;color:#166534;">Configuración guardada correctamente</span>
+        <button class="btn-primary" style="width:auto;padding:7px 16px;font-size:13px;" onclick="document.getElementById('cfgSaveBar').style.display='none'">✓ OK</button>
+      </div>
+      <div class="page-content">
+        <div class="page-header__row" style="margin-bottom:20px;">
+          <div><h1 style="font-size:22px;font-weight:800;color:var(--navy);">Configuración</h1><p style="font-size:13px;color:var(--muted);">Personaliza tu experiencia en SafeSignal.</p></div>
+        </div>
+
+        <div class="config-section">
+          <h4>Apariencia</h4>
+          <div class="config-row"><div><div style="font-size:13px;font-weight:600;">Tema</div><div style="font-size:12px;color:var(--muted);">Apariencia visual de la aplicación</div></div><div style="display:flex;gap:8px;"><button class="theme-btn theme-btn--active" onclick="setTheme(this,'light')">Claro</button><button class="theme-btn" onclick="setTheme(this,'dark')">Oscuro</button><button class="theme-btn" onclick="setTheme(this,'auto')">Auto</button></div></div>
+          <div class="config-row"><div><div style="font-size:13px;font-weight:600;">Idioma</div><div style="font-size:12px;color:var(--muted);">Idioma de la interfaz</div></div><select class="form-select" style="font-size:12.5px;width:auto;padding:7px 10px;height:auto;" onchange="showSave()"><option>Español (Perú)</option><option>English</option></select></div>
+        </div>
+
+        <div class="config-section">
+          <h4>Privacidad y seguridad</h4>
+          <div class="config-row"><div><div style="font-size:13px;font-weight:600;">Ubicación en segundo plano</div><div style="font-size:12px;color:var(--muted);">Permite a SafeSignal acceder a tu GPS siempre</div></div><label class="toggle"><input type="checkbox" checked onchange="showSave()" /><span class="toggle-slider"></span></label></div>
+          <div class="config-row"><div><div style="font-size:13px;font-weight:600;">Compartir datos con la comunidad</div><div style="font-size:12px;color:var(--muted);">Contribuye al mapa de seguridad ciudadana</div></div><label class="toggle"><input type="checkbox" checked onchange="showSave()" /><span class="toggle-slider"></span></label></div>
+          <div class="config-row"><div><div style="font-size:13px;font-weight:600;">Reportes anónimos</div><div style="font-size:12px;color:var(--muted);">Oculta tu identidad en los reportes públicos</div></div><label class="toggle"><input type="checkbox" onchange="showSave()" /><span class="toggle-slider"></span></label></div>
+          <div class="config-row"><div><div style="font-size:13px;font-weight:600;">Autenticación de dos factores</div><div style="font-size:12px;color:var(--muted);">Protección adicional en el inicio de sesión</div></div><div style="display:flex;align-items:center;gap:10px;"><span class="badge badge--gray">No activo</span><button class="btn-secondary" style="padding:6px 12px;font-size:12px;">Activar</button></div></div>
+        </div>
+
+        <div class="config-section">
+          <h4>Sensibilidad de alertas</h4>
+          <p style="font-size:12.5px;color:var(--muted);margin-bottom:12px;">Define qué tan cercanos deben estar los incidentes para notificarte.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="sens-btn" onclick="selSens(this,'baja')">Baja (2 km)</button>
+            <button class="sens-btn sens-btn--active" onclick="selSens(this,'media')">Media (500m)</button>
+            <button class="sens-btn" onclick="selSens(this,'alta')">Alta (100m)</button>
+          </div>
+        </div>
+        <div class="danger-zone">
+          <h4 style="color:var(--sos);">Zona de peligro</h4>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+            <div><div style="font-size:13px;font-weight:600;">Eliminar cuenta permanentemente</div><div style="font-size:12px;color:var(--muted);">Se borrarán todos tus datos, historial y configuraciones.</div></div>
+            <button class="btn-danger" style="width:auto;" data-modal="deleteAccModal">Eliminar cuenta</button>
+          </div>
+        </div>
+
+        <div class="config-save-actions">
+          <button class="btn-secondary">Restaurar predeterminado</button>
+          <button class="btn-primary" style="width:auto;" onclick="showSave()">Guardar cambios</button>
+        </div>
+      </div>
+      <footer class="app-footer"><p>© 2024 SafeSignal.</p></footer>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="deleteAccModal" style="display:none;">
+    <div class="modal">
+      <div class="modal__title" style="color:var(--sos);">Eliminar cuenta</div>
+      <div class="modal__body">Esta acción es permanente e irreversible. Todos tus datos serán eliminados.</div>
+      <div class="form-group"><label class="form-label">Escribe CONFIRMAR para continuar</label><input class="form-input" type="text" placeholder="CONFIRMAR" /></div>
+      <div class="modal__footer"><button class="btn-secondary" data-close-modal>Cancelar</button><button class="btn-danger" style="width:auto;">Eliminar definitivamente</button></div>
+    </div>
+  </div>
+
+  <script src="assets/scripts/app.js"></script>
+  <script src="assets/scripts/configuracion.js"></script>
+</body>
+</html>
