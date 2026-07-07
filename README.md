@@ -1,8 +1,8 @@
-SafeSignal
+#**SafeSignal**
 
 SafeSignal es una plataforma orientada a mejorar la seguridad urbana mediante el uso de tecnologías inteligentes. El proyecto busca ayudar a estudiantes y trabajadores que se desplazan por zonas inseguras, especialmente en horarios nocturnos, brindando herramientas para prevenir y actuar ante situaciones de riesgo.
 
- Índice
+**Índice**
 
 * [Descripción](#descripción)
 * [Características](#características)
@@ -12,13 +12,13 @@ SafeSignal es una plataforma orientada a mejorar la seguridad urbana mediante el
 * [Equipo](#equipo)
 * [Estado del Proyecto](#estado-del-proyecto)
 
- Descripción
+##**Descripción**
 
 SafeSignal surge como respuesta a los problemas de inseguridad ciudadana que enfrentan estudiantes y trabajadores durante sus desplazamientos diarios en Lima Metropolitana. Muchas personas transitan por calles poco iluminadas, paraderos inseguros o zonas con alta percepción de riesgo, sin contar con una herramienta rápida y confiable para pedir ayuda.
 
 La plataforma permite activar alertas SOS, compartir ubicación en tiempo real con contactos de confianza, visualizar zonas de riesgo, consultar rutas seguras y reportar incidentes dentro de la comunidad. Además, SafeSignal propone el uso de dispositivos IoT e inteligencia artificial para mejorar la prevención y respuesta ante situaciones de peligro.
 
-Características
+##**Características**
 
 * Activación de alerta SOS en situaciones de emergencia.
 * Alerta silenciosa para pedir ayuda de forma discreta.
@@ -32,7 +32,7 @@ Características
 * Estadísticas sobre incidentes y zonas de mayor riesgo.
 * Interfaz sencilla, rápida e intuitiva para situaciones de emergencia.
 
-Tecnologías
+##**Tecnologías**
 
 * Frontend: HTML, CSS y JavaScript.
 * UI/UX: Figma para wireframes, mockups y prototipos.
@@ -40,7 +40,7 @@ Tecnologías
 * Control de versiones: Git y GitHub.
 * Despliegue: GitHub Pages.
 
- Proceso de Diseño
+##**Proceso de Diseño**
 
 El proyecto fue desarrollado bajo un enfoque centrado en el usuario, utilizando diferentes herramientas de investigación y diseño UX/UI:
 
@@ -60,7 +60,7 @@ El proyecto fue desarrollado bajo un enfoque centrado en el usuario, utilizando 
 * Mockups.
 * Prototipos web y mobile.
 
- Validación
+##**Validación**
 
 Para validar que SafeSignal responda a las necesidades reales de los usuarios, se realizaron actividades como:
 
@@ -74,7 +74,7 @@ Para validar que SafeSignal responda a las necesidades reales de los usuarios, s
 
 Los resultados permitieron identificar que los usuarios valoran principalmente el botón SOS, la ubicación en tiempo real, las alertas automáticas, los reportes comunitarios y la posibilidad de sentirse acompañados durante sus desplazamientos.
 
-Equipo
+#**Equipo**
 
 Proyecto desarrollado para el curso IHC y Tecnologías Móviles – UPC por:
 
@@ -82,7 +82,7 @@ Proyecto desarrollado para el curso IHC y Tecnologías Móviles – UPC por:
 * Lasteros Lopez Gabriel Omar
 * Salazar Miranda Mateo Paolo
 
- Estado del Proyecto
+##**Estado del Proyecto**
 
 * Investigación de usuarios completada.
 * Segmentos objetivo definidos.
